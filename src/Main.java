@@ -54,17 +54,23 @@ class FontFrame
         this.sample = new JTextArea(TEXT_ROWS, TEXT_COLUMNS);
         this.sample.setText("The quick brown fox jumps over the lazy dog");
         this.sample.setLineWrap(true);
+        this.sample.setWrapStyleWord(true);
         this.sample.setBorder(BorderFactory.createEtchedBorder());
+
+        JScrollPane scrollPane = new JScrollPane(this.sample);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); // Always show vertical scroll bar
+
+
 
         // Add components to grid, using GBC convenience class
 
         this.add(faceLabel, new GBC(0, 0).setAnchor(GBC.EAST));
-        this.add(this.face, new GBC(1, 0).setFill(GBC.HORIZONTAL).setWeight(100, 0).setInsets(1));
+        this.add(this.face, new GBC(1, 0).setFill(GBC.HORIZONTAL).setWeight(0, 0).setInsets(1));
         this.add(sizeLabel, new GBC(0, 1).setAnchor(GBC.EAST));
-        this.add(this.size, new GBC(1, 1).setFill(GBC.HORIZONTAL).setWeight(100, 0).setInsets(1));
-        this.add(this.bold, new GBC(0, 2, 2, 1).setAnchor(GBC.CENTER).setWeight(100, 100));
-        this.add(this.italic, new GBC(0, 3, 2, 1).setAnchor(GBC.CENTER).setWeight(100, 100));
-        this.add(this.sample, new GBC(2, 0, 1, 4).setFill(GBC.BOTH).setWeight(100, 100));
+        this.add(this.size, new GBC(1, 1).setFill(GBC.HORIZONTAL).setWeight(0, 0).setInsets(1));
+        this.add(this.bold, new GBC(0, 2, 2, 1).setAnchor(GBC.CENTER).setWeight(0, 0));
+        this.add(this.italic, new GBC(0, 3, 2, 1).setAnchor(GBC.CENTER).setWeight(0, 0));
+        this.add(scrollPane, new GBC(2, 0, 1, 4).setFill(GBC.BOTH).setWeight(100, 100));
         this.pack();
         this.updateSample();
 
